@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cm4gbt7b06bwr"
+path="res://.godot/imported/26f8b9_sonic_ring_sound_effect.mp3-aea181695e1a8aafc2c9c01013ef7c6e.mp3str"
+
+[deps]
+
+source_file="res://Material Freeway/26f8b9_sonic_ring_sound_effect.mp3"
+dest_files=["res://.godot/imported/26f8b9_sonic_ring_sound_effect.mp3-aea181695e1a8aafc2c9c01013ef7c6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

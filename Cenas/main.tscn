@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://muciuk6qdjwc"]
+
+[ext_resource type="Script" uid="uid://c6xu2nbmo16qg" path="res://Cenas/main.gd" id="1_x6di6"]
+[ext_resource type="PackedScene" uid="uid://dhyoqxuun0ghm" path="res://Cenas/linha_chegada.tscn" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dlyabyoaceykq" path="res://Material Freeway/Gemini_Generated_Image_smwt31smwt31smwt.png" id="2_x6di6"]
+[ext_resource type="PackedScene" uid="uid://dek5lc5s4w441" path="res://Cenas/player.tscn" id="PLAYER_NOVO"]
+[ext_resource type="PackedScene" uid="uid://dnux8qv6vbxm0" path="res://Cenas/carros.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b202w6bw71m2f" path="res://Cenas/hud.tscn" id="4_lb8y5"]
+[ext_resource type="AudioStream" uid="uid://dd7e841tkk6mv" path="res://Material Freeway/sons/Sonic_the_Hedgehog_OST_-_Green_Hill_Zone_(mp3.pm).mp3" id="6_btbr3"]
+[ext_resource type="AudioStream" uid="uid://cm4gbt7b06bwr" path="res://Material Freeway/26f8b9_sonic_ring_sound_effect.mp3" id="8_btbr3"]
+
+[node name="Main" type="Node" unique_id=496808836]
+script = ExtResource("1_x6di6")
+metadata/_edit_horizontal_guides_ = [217.0, 270.0, 417.0, 489.0, 439.0, 590.0, 538.0, 751.0]
+
+[node name="Pista" type="Sprite2D" parent="." unique_id=275704124]
+scale = Vector2(0.4684982, 0.46744797)
+texture = ExtResource("2_x6di6")
+centered = false
+
+[node name="LinhaChegada" parent="." unique_id=1501306094 instance=ExtResource("2_1bvp3")]
+visible = false
+position = Vector2(640, 154)
+
+[node name="Player" parent="." unique_id=613278460 instance=ExtResource("PLAYER_NOVO")]
+
+[node name="HUD" parent="." unique_id=1906715036 instance=ExtResource("4_lb8y5")]
+
+[node name="TimerCarrosLentos" type="Timer" parent="." unique_id=74760946]
+wait_time = 0.5
+autostart = true
+
+[node name="TimerCarrosRapidos" type="Timer" parent="." unique_id=1218127534]
+wait_time = 0.3
+autostart = true
+
+[node name="AudioTema" type="AudioStreamPlayer2D" parent="." unique_id=1768169471]
+stream = ExtResource("6_btbr3")
+
+[node name="AudioVitoria" type="AudioStreamPlayer2D" parent="." unique_id=679038885]
+
+[node name="AudioPonto" type="AudioStreamPlayer2D" parent="." unique_id=2049385002]
+stream = ExtResource("8_btbr3")
+
+[node name="timerTempo" type="Timer" parent="." unique_id=1142774940]
+autostart = true
+
+[connection signal="pontua" from="Player" to="." method="_on_player_pontua"]
+[connection signal="reinicia" from="HUD" to="." method="_on_hud_reinicia"]
+[connection signal="timeout" from="TimerCarrosLentos" to="." method="_on_timer_carros_lentos_timeout"]
+[connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rapidos_timeout"]
+[connection signal="timeout" from="timerTempo" to="." method="_on_timer_tempo_timeout"]

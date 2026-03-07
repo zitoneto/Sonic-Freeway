@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dd7e841tkk6mv"
+path="res://.godot/imported/Sonic_the_Hedgehog_OST_-_Green_Hill_Zone_(mp3.pm).mp3-4592a10627e48bb2a1648351cf8b6dbf.mp3str"
+
+[deps]
+
+source_file="res://Material Freeway/sons/Sonic_the_Hedgehog_OST_-_Green_Hill_Zone_(mp3.pm).mp3"
+dest_files=["res://.godot/imported/Sonic_the_Hedgehog_OST_-_Green_Hill_Zone_(mp3.pm).mp3-4592a10627e48bb2a1648351cf8b6dbf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
