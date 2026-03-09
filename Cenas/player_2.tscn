@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://d27vrueucc7dp"]
+
+[ext_resource type="Script" uid="uid://l18klvdym04e" path="res://Cenas/player_2.gd" id="1_gb1vw"]
+[ext_resource type="Texture2D" uid="uid://dwmsx0brh704h" path="res://Material Freeway/mario baixo.png" id="1_smooi"]
+[ext_resource type="Texture2D" uid="uid://esbp3popxw6b" path="res://Material Freeway/mario cima.png" id="2_j4plq"]
+[ext_resource type="Texture2D" uid="uid://dxyk64sr67y8o" path="res://Material Freeway/mario esq2.png" id="3_gb1vw"]
+[ext_resource type="AudioStream" uid="uid://d0ja2lnkq5mgd" path="res://Material Freeway/sm64-mario-pain.mp3" id="5_gb1vw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b70el"]
+atlas = ExtResource("1_smooi")
+region = Rect2(0, 0, 28, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvoet"]
+atlas = ExtResource("1_smooi")
+region = Rect2(28, 0, 28, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2svl5"]
+atlas = ExtResource("2_j4plq")
+region = Rect2(0, 0, 28, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ildhv"]
+atlas = ExtResource("2_j4plq")
+region = Rect2(28, 0, 28, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_255ym"]
+atlas = ExtResource("3_gb1vw")
+region = Rect2(0, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1ky8"]
+atlas = ExtResource("3_gb1vw")
+region = Rect2(17, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jojh5"]
+atlas = ExtResource("3_gb1vw")
+region = Rect2(34, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl6oo"]
+atlas = ExtResource("3_gb1vw")
+region = Rect2(51, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aom4"]
+atlas = ExtResource("3_gb1vw")
+region = Rect2(68, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro1pu"]
+atlas = ExtResource("3_gb1vw")
+region = Rect2(85, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wria0"]
+atlas = ExtResource("3_gb1vw")
+region = Rect2(104, 0, 17, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qsqf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b70el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvoet")
+}],
+"loop": true,
+"name": &"baixo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2svl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ildhv")
+}],
+"loop": true,
+"name": &"cima",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_255ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1ky8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jojh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl6oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aom4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro1pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wria0")
+}],
+"loop": true,
+"name": &"direita",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_255ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1ky8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jojh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl6oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aom4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro1pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wria0")
+}],
+"loop": true,
+"name": &"esquerda",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb1vw"]
+size = Vector2(29, 55)
+
+[node name="Player2" type="Area2D" unique_id=436223276]
+script = ExtResource("1_gb1vw")
+
+[node name="animacaoP2" type="AnimatedSprite2D" parent="." unique_id=1107417169]
+position = Vector2(0.15513521, 0.27376363)
+scale = Vector2(2.135898, 2.1358986)
+sprite_frames = SubResource("SpriteFrames_qsqf0")
+animation = &"esquerda"
+
+[node name="colisaoP2" type="CollisionShape2D" parent="." unique_id=1721048213]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_gb1vw")
+
+[node name="audioP2" type="AudioStreamPlayer2D" parent="." unique_id=132146853]
+stream = ExtResource("5_gb1vw")
+volume_db = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

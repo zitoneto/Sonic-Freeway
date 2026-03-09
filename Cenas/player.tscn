@@ -196,7 +196,8 @@ animations = [{
 
 [node name="Player" type="Area2D" unique_id=613278460]
 script = ExtResource("1_ybr15")
-speed = null
+metadata/_edit_horizontal_guides_ = [-32.0, 32.0]
+metadata/_edit_vertical_guides_ = [-26.0, 31.0]
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=1190570989]
 stream = ExtResource("2_jx05c")

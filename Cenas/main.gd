@@ -4,11 +4,12 @@ var cenaCarros = preload("res://Cenas/carros.tscn")
 var score = 0
 var pistas_rapidas_y = [205, 265, 315]
 var pistas_lentas_y = [430, 490, 550, 610, 670]
-var timer: int = 136
+var timer: int = 10
 
 func _ready() -> void:
 	$HUD/Placar.text = str(score)
 	$HUD/Mensagem.text = " "
+	$HUD/hudScreen.hide()
 	$HUD/Button.hide()
 	$AudioTema.play()
 	$HUD/TimerLabel.text = "Tempo: " + str(timer)
@@ -47,9 +48,12 @@ func _on_player_pontua() -> void:
 	if score == 10:
 		$HUD/Mensagem.text = "Parabens!"
 		$HUD/Button.show()
+		$HUD/hudScreen.show()
 		$TimerCarrosLentos.stop()
 		$TimerCarrosLentos.stop()
-		$AudioVitoria.play()
+		$timerTempo.stop()
+		$AudioWin.play()
+		$AudioTema.stop()
 		$Player.speed = 0
 
 
@@ -58,5 +62,22 @@ func _on_timer_tempo_timeout() -> void:
 	timer -= 1
 	$HUD/TimerLabel.text = "Tempo: " + str(timer)
 	if timer <= 0:
+		get_tree().change_scene_to_file("res://Cenas/game_over.tscn")
 		$timerTempo.stop()
-	
+
+
+func _on_player_2_pontua() -> void:
+	if score <= 10:
+		score += 1
+		$HUD/Placar.text = str(score)
+		$audioMario.play()
+	if score == 10:
+		$HUD/Mensagem.text = "Parabens!"
+		$HUD/Button.show()
+		$HUD/hudScreen.show()
+		$TimerCarrosLentos.stop()
+		$TimerCarrosLentos.stop()
+		$timerTempo.stop()
+		$AudioWin.play()
+		$AudioTema.stop()
+		$Player2.speed = 0

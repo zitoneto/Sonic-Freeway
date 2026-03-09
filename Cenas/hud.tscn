@@ -3,22 +3,16 @@
 [ext_resource type="Script" uid="uid://cekua84gkgbeu" path="res://Cenas/hud.gd" id="1_1pfdj"]
 [ext_resource type="FontFile" uid="uid://ekdm8rrhqoip" path="res://Material Freeway/PressStart2P-Regular.ttf" id="2_5udud"]
 
-[sub_resource type="GDScript" id="GDScript_1pfdj"]
-script/source = "extends Button
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="HUD" type="CanvasLayer" unique_id=1906715036]
 script = ExtResource("1_1pfdj")
+
+[node name="hudScreen" type="ColorRect" parent="." unique_id=994698512]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3882353)
 
 [node name="Placar" type="Label" parent="." unique_id=2001482662]
 anchors_preset = 5
@@ -47,10 +41,10 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.32649755, 0.97212845, 0, 1)
+theme_override_colors/font_color = Color(0.13333334, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_5udud")
 theme_override_font_sizes/font_size = 32
-text = "Pabens ganho"
+text = "Vitoria!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -68,8 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_5udud")
 theme_override_font_sizes/font_size = 16
-text = "DINOVO"
-
+text = "Play Again"
 
 [node name="TimerLabel" type="Label" parent="." unique_id=1565539279]
 offset_right = 40.0
